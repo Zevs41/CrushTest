@@ -1,5 +1,6 @@
 <script src="js/main.js"></script>
 
+<---Подключение к БД--->
 <?php
 
 $dbHost = "localhost";
@@ -11,6 +12,7 @@ if ($mysqli == false) {
     echo ("Ошибка подключения к БД");
 }
 
+<---Валидация логина--->
 $login = $_POST['login'];
 
 if(mb_strlen($login) < 6 || mb_strlen($login)>20){
@@ -18,6 +20,7 @@ if(mb_strlen($login) < 6 || mb_strlen($login)>20){
     exit();
 }
 
+<---Валидация пароля--->
 $pass = $_POST['pass'];
 
 if(mb_strlen($pass) < 6 || mb_strlen($pass)>20){
@@ -25,6 +28,7 @@ if(mb_strlen($pass) < 6 || mb_strlen($pass)>20){
     exit();
 }
 
+<---Выбор из БД всех пользователей с таким логином--->
 $result = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `name` = '$login'");
 
 $user = mysqli_fetch_assoc($result);
@@ -36,6 +40,7 @@ if(count($user) > 0){
 
 $pass = md5($pass);
 
+<---Добавление в БД пользователя с таким логином и паролем--->
 mysqli_query($mysqli, "INSERT INTO `users` (`name`, `password`) VALUES ('$login', '$pass')");
 
 $mysqli -> close();
