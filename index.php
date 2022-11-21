@@ -1,3 +1,4 @@
+<---Подключение к БД--->
 <?php
 $dbHost = "localhost";
 $user = "root";
@@ -222,7 +223,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM `records` WHERE `importance` > 1"
             </div>
         </div>
     </section>
-
+    
+    <---Подключение футера--->
     <?php
     require "footer.html";
     ?>
@@ -236,7 +238,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM `records` WHERE `importance` > 1"
             </button>
         </form>
     </div>
-
+    
+    <---Подключение модальнеых окон--->
     <?php
     require "modals.html";
     ?>
