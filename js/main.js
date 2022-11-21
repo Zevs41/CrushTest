@@ -10,16 +10,19 @@ $(function () {
     })
 });
 
+<---Прокрутка страницы до элемента "Записи"--->
 function scrollToRecords() {
     const el = document.getElementById('records');
     el.scrollIntoView({ behavior: "smooth" });
 }
 
+<---Прокрутка страницы до элемента "Новости"--->
 function scrollToNews() {
     const el = document.getElementById('news');
     el.scrollIntoView({ behavior: "smooth" });
 }
 
+<---Высчитывание индекса массы тела--->
 function calculateBmi(){
     var bmi = 0.0;
     var weight = parseFloat(document.getElementById("weight").value);
