@@ -1,3 +1,4 @@
+<---Подключение к БД--->
 <?php
 $dbHost = "localhost";
 $user = "root";
@@ -8,6 +9,7 @@ if ($mysqli == false) {
     echo ("Ошибка подключения к БД");
 }
 
+<---Запрос на выбор всех записей с выжностью больше 0 из БД--->
 $result = mysqli_query($mysqli, "SELECT * FROM `records` WHERE `importance` > 0");
 ?>
 
@@ -81,6 +83,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM `records` WHERE `importance` > 0"
                 </div>
             </div>
             <div class="services_items_record">
+                <---Вывод записей из БД--->
                 <?php while ($records = mysqli_fetch_assoc($result)) {
                 ?>
                     <div class="services_item_record">
@@ -100,7 +103,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM `records` WHERE `importance` > 0"
             </div>
         </div>
     </section>
-
+    
+    <---Подключение футера--->
     <?php
     require "footer.html";
     ?>
@@ -111,7 +115,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM `records` WHERE `importance` > 0"
     <script src="js/main.js"></script>
 
 </body>
-
+<---Подключение модальных окон--->
 <?php
 require "modals.html";
 ?>
